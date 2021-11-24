@@ -1,0 +1,27 @@
+$px-375: 37.5;
+
+$border-radius-default: 4px;
+
+$bg-body: #191a20;
+$color-lightest: #ffffff;
+$color-lighter: #e0e0e0;
+$color-darkest: #000000;
+$color-normal: #999999;
+$color-text-loading: rgba(255, 255, 255, 0.1);
+
+$bg-body-m: #ffffff;
+$color-darker-m: #111111;
+$color-normal-m: #333333;
+$color-border-light-m: #e3e3e3;
+$color-important-m: #ff314a;
+
+@function rem($n) {
+  @return ($n / $px-375) * 1rem;
+}
+
+$page-margin: rem(10);
+
+@mixin font-m($size: 14, $lh: 20) {
+  line-height: rem($lh);
+  font-size: rem($size);
+}

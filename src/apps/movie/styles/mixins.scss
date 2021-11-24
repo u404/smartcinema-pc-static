@@ -1,0 +1,20 @@
+$px-375: 37.5;
+
+$border-radius-default: 4px;
+
+$bg-body: #121212;
+$color-lightest: #ffffff;
+$color-lighter: #e0e0e0;
+$color-normal: #b8b8b8;
+$color-text-loading: rgba(255, 255, 255, 0.1);
+
+@function rem($n) {
+  @return ($n / $px-375) * 1rem;
+}
+
+$page-margin: rem(10);
+
+@mixin font-m($size: 14, $lh: 20) {
+  line-height: rem($lh);
+  font-size: rem($size);
+}

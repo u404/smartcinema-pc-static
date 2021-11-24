@@ -1,0 +1,102 @@
+$px-375: 37.5;
+$px-1920: 192;
+$page-max-width: 1200px;
+$border-radius-default: 4px;
+
+$bg-body: #141414;
+$bg-light: #ffffff;
+$bg-primary: #4972cc;
+$bg-primary-hover: rgba(0, 67, 211, 1);
+
+$bg-content: #272727;
+$bg-strong: #fbdfaf;
+$bg-gradual-start: #e8bf8f;
+$bg-gradual-stop: #cc9361;
+
+$color-normal: #999999;
+$color-lightest: #ffffff;
+$color-lighter: #e0e0e0;
+$color-primary: #4972cc;
+
+$color-active: #ffffff;
+$color-darkest: #000000;
+$color-border-light: #e1e1e1;
+
+$color-dark: #ffffff;
+$color-dark2: #e0e0e0;
+$color-light: #000000;
+$color-strong: #e8bf8f;
+$color-active: #ffffff;
+$color-error: #f14363;
+
+// 自定义loading
+$color-text-loading: rgba(255, 255, 255, 0.1);
+
+@function rem($n) {
+  @return ($n / $px-375) * 1rem;
+}
+
+$page-margin: rem(15);
+$page-margin-mobile: rem(16);
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-line-clamp($line: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+
+@mixin flex($flow: row nowrap, $jus: space-between, $ali: center) {
+  display: flex;
+  flex-flow: $flow;
+  justify-content: $jus;
+  align-items: $ali;
+}
+
+@mixin font($size: 14, $lh: 20) {
+  line-height: #{$lh}px;
+  font-size: #{$size}px;
+}
+
+@mixin font-m($size: 14, $lh: 20) {
+  line-height: rem($lh);
+  font-size: rem($size);
+}
+
+@mixin button() {
+}
+
+@mixin screen-large() {
+  @media screen and (min-width: 1700px) {
+    @content;
+  }
+}
+
+@mixin screen-small() {
+  @media screen and (min-width: 768px) and (max-width: 1699px) {
+    @content;
+  }
+}
+
+@mixin screen-mobile() {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin screen-pc() {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin fontPuhui() {
+  font-family: "alipuhui";
+}

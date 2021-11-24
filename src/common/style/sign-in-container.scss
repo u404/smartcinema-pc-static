@@ -1,0 +1,400 @@
+.sign-in-container {
+  .button {
+    @include flex($jus: center);
+    cursor: pointer;
+    &.disabled {
+      cursor: not-allowed;
+    }
+  }
+  .link-button {
+    // color: #80a5de;
+    color: #3a88fe;
+    &:hover,
+    &:active {
+      color: #3a88fe;
+    }
+    &.disabled {
+      color: $color-normal;
+    }
+  }
+
+  .form {
+    @include flex(column, flex-start, center);
+    &_title {
+      @include font(24, 33);
+      font-weight: 500;
+      color: #121212;
+    }
+
+    &_guide {
+      padding-bottom: 24px;
+      text-align: center;
+      b {
+        font-weight: 600;
+      }
+      &_title {
+        @include font(22, 34);
+        color: #121212;
+      }
+      &_desc {
+        margin-top: 5px;
+        @include font(16, 24);
+        color: #999999;
+      }
+    }
+
+    &_item {
+      margin-top: 20px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &_label {
+      margin-bottom: 8px;
+      padding-left: 20px;
+      @include font(14, 20);
+      font-weight: 600;
+      color: #444444;
+    }
+
+    &_input {
+      width: 360px;
+      height: 48px;
+      position: relative;
+      border: 1px solid #dadada;
+      border-radius: 48px;
+      @include flex($jus: flex-start);
+      transition: border ease 0.3s;
+
+      &:not(.disabled):hover,
+      &.focus {
+        border-color: #121212;
+      }
+
+      &.error,
+      &.error:hover {
+        border-color: #df4d4d;
+      }
+
+      > * {
+        flex: 0 0 auto;
+      }
+
+      .selector {
+        margin-left: 10px;
+        position: relative;
+        z-index: 1;
+        &-input {
+          padding-left: 10px;
+          cursor: pointer;
+          @include flex($jus: flex-start);
+          &:after {
+            content: "";
+            margin-left: 8px;
+            width: 11px;
+            height: 6px;
+            background: url(https://g.smartcinemausa.com/images/7a5d10d748cf48a1898a388ed7eacff5-11-6.png)
+              center no-repeat;
+            background-size: contain;
+            transition: transform ease 0.3s;
+          }
+        }
+        &.active .selector-input:after {
+          transform: rotate(180deg);
+        }
+
+        &.disabled .selector-input {
+          cursor: inherit;
+        }
+        &.disabled .selector-input:after {
+          display: none;
+        }
+
+        &-mask {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+        &-options {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background: $bg-light;
+          color: #121212;
+          box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          border-radius: 6px;
+        }
+
+        &-option {
+          @include flex($jus: flex-start);
+          padding-left: 10px;
+          padding-right: 10px;
+          height: 48px;
+          cursor: pointer;
+          white-space: nowrap;
+
+          &:hover {
+            background: rgba(30, 30, 30, 0.6);
+            color: $color-lightest;
+          }
+
+          &.active {
+            background: #1e1e1e;
+            color: $color-lightest;
+          }
+        }
+
+        .icon {
+          display: block;
+          width: 30px;
+          height: 30px;
+        }
+        .title {
+          margin-left: 10px;
+        }
+        .code {
+          margin-left: 5px;
+          display: none;
+        }
+
+        &-input {
+          .icon {
+          }
+          .title {
+            display: none;
+          }
+          .code {
+          }
+        }
+
+        &.text-style {
+          .icon {
+            display: none;
+          }
+          .title {
+            margin-left: 0;
+            display: none;
+          }
+          .code {
+            margin-left: 0;
+            display: block;
+          }
+        }
+      }
+      input {
+        border: 0 none;
+        flex: 1 1 auto;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        padding: 0 20px;
+        @include font(18, 25);
+        font-weight: 500;
+        color: #121212;
+        background: transparent;
+        &::placeholder {
+          color: #cecece;
+        }
+      }
+      .pwd-toggle-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        width: 40px;
+        height: 100%;
+        padding-right: 20px;
+        // background: url(https://g.smartcinemausa.com/images/9f345cf2bdca42bc8b46fa68c9d88389-48-48.png)
+        //   left center no-repeat;
+        background: url(https://g.smartcinemausa.com/images/fd43f964243b402f963858569e6bc3c4-20-14.png)
+          left center no-repeat;
+        background-size: 20px;
+        &.active {
+          // background-image: url(https://g.smartcinemausa.com/images/61e0d68f5daf40798ebd13748e41d04e-48-48.png);
+          background-image: url(https://g.smartcinemausa.com/images/eb1f074547ed4d548bd7b54bff0336dc-20-14.png);
+        }
+      }
+      .vcode-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        padding-right: 20px;
+        @include font(14, 20);
+      }
+    }
+
+    &_input-error {
+      margin-top: 12px;
+      text-align: center;
+      @include font(13, 18);
+      color: #df4d4d;
+    }
+
+    &_button {
+      margin-top: 40px;
+      width: 230px;
+      height: 48px;
+      background: #121212;
+      border: none;
+      border-radius: 48px;
+      @include flex($jus: center);
+      @include font(17, 24);
+      color: #ffffff;
+      cursor: pointer;
+
+      &[disabled] {
+        background: rgba(18, 18, 18, 0.5);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .toggle-button,
+  .back-button {
+    margin-top: 24px;
+    @include font(14, 20);
+    font-weight: 600;
+  }
+  .back-button {
+    &:before {
+      content: "";
+      margin-top: -2px;
+      margin-right: 6px;
+      width: 13px;
+      height: 13px;
+      background: url(https://g.smartcinemausa.com/images/600415e69e3747c08e0c2f26ccf855d1-13-13.png)
+        center no-repeat;
+      background-size: contain;
+    }
+    &:hover:before,
+    &:active:before {
+      background-image: url(https://g.smartcinemausa.com/images/c260190fd7cf422fb1853540e25f5fb3-13-13.png);
+    }
+  }
+}
+
+@include screen-mobile {
+  .sign-in-container {
+    .form {
+      &_title {
+        @include font-m(16, 22);
+      }
+
+      &_guide {
+        padding-bottom: 24px;
+        text-align: center;
+        &_title {
+          @include font(22, 34);
+          color: #121212;
+        }
+        &_desc {
+          margin-top: 5px;
+          @include font(16, 24);
+          color: #999999;
+        }
+      }
+
+      &_item {
+        margin-top: rem(20);
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      &_label {
+        margin-bottom: rem(8);
+        padding-left: rem(20);
+        @include font-m(14, 20);
+      }
+
+      &_input {
+        width: rem(260);
+        height: rem(44);
+
+        .selector {
+          margin-left: rem(10);
+          &-input {
+            padding-left: rem(10);
+            &:after {
+              margin-left: rem(5);
+              width: rem(11);
+              height: rem(6);
+            }
+          }
+
+          &-options {
+            box-shadow: 0 rem(5) rem(5) rem(5) rgba(0, 0, 0, 0.1);
+            border-radius: rem(6);
+          }
+
+          &-option {
+            @include flex($jus: flex-start);
+            padding-left: rem(10);
+            padding-right: rem(10);
+            height: rem(40);
+          }
+
+          .icon {
+            width: rem(30);
+            height: rem(30);
+          }
+          .title {
+            margin-left: rem(10);
+          }
+          .code {
+            margin-left: rem(5);
+          }
+        }
+
+        input {
+          padding: 0 rem(20);
+          @include font-m(15, 21);
+        }
+
+        .pwd-toggle-button {
+          width: rem(36);
+          height: 100%;
+          padding-right: rem(20);
+          background-size: rem(16);
+        }
+        .vcode-button {
+          padding-right: rem(20);
+          @include font-m(13, 18);
+        }
+      }
+
+      &_input-error {
+        margin-top: rem(10);
+        @include font-m(11, 16);
+      }
+
+      &_button {
+        margin-top: rem(30);
+        width: rem(160);
+        height: rem(42);
+        border-radius: rem(48);
+        @include font-m(15, 21);
+      }
+    }
+    .toggle-button,
+    .back-button {
+      margin-top: rem(12);
+      @include font-m(12, 18);
+      font-weight: 500;
+    }
+    .back-button {
+      &:before {
+        margin-top: rem(2);
+        margin-right: rem(5);
+        width: rem(11);
+        height: rem(11);
+      }
+    }
+  }
+}
